@@ -24,3 +24,8 @@ const port =4444;
 const Server = app.listen(port,() => {
     console.log (`server is running: ${port}`);
 })
+
+// post endpoint
+app.post('/postData', (req, res) => {
+    projectData = {...req.body};
+});
