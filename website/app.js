@@ -22,7 +22,11 @@ btn.addEventListener('click', async () => {
     
     .then(()=> {
     updateUI()
-    });
+    })
+
+    .catch (error => {
+        console.log(error)
+    })
 });
 
 // building async function to fetch temperature data via api.
