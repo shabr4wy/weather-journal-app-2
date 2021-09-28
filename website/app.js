@@ -11,7 +11,7 @@ btn.addEventListener('click', async () => {
     const feel = document.querySelector('#feelings').value;
 
     if (!zip){
-        alert('pleas, Enter Zipcode')
+        alert('please, Enter Zipcode')
     }
 
     await getTemp(zip)
