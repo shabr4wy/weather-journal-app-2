@@ -29,3 +29,8 @@ const Server = app.listen(port,() => {
 app.post('/postData', (req, res) => {
     projectData = {...req.body};
 });
+
+// get endpoint
+app.get('getData',(req,res) => {
+    res.send(projectData);
+})
