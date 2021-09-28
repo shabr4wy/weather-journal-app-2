@@ -31,6 +31,6 @@ app.post('/postData', (req, res) => {
 });
 
 // get endpoint
-app.get('getData',(req,res) => {
+app.get('/getData',(req,res) => {
     res.send(projectData);
 })

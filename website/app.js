@@ -11,9 +11,14 @@ btn.addEventListener('click', async () => {
     const feeling = document.querySelector('#feelings').value;
 
     await getTemp(zip)
+
     .then ((temp) => {
         postData (temp, feeling);
     })
+    
+    .then(()=> {
+    updateUI()
+    });
 });
 
 // building async function to fetch temperature data via api.
@@ -40,4 +45,14 @@ async function postData (temp, feeling) {
       }),
 
     })
+}
+
+// build async function to display data to user
+async function updateUI (){
+    const req = await fetch('/getData');
+    const data = await req.json();
+
+    document.querySelector('#date').innerHTML = data.date;
+    document.querySelector('#temp').innerHTML = data.temp
+    document.querySelector('#content').innerHTML = data.feeling
 }
