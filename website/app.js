@@ -8,12 +8,16 @@ let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 btn.addEventListener('click', async () => {
     const zip = document.querySelector('#zip').value;
-    const feeling = document.querySelector('#feelings').value;
+    const feel = document.querySelector('#feelings').value;
+
+    if (!zip){
+        alert('pleas, Enter Zipcode')
+    }
 
     await getTemp(zip)
 
     .then ((temp) => {
-        postData (temp, feeling);
+        postData (temp, feel);
     })
     
     .then(()=> {
@@ -31,7 +35,7 @@ async function getTemp(zip) {
 }
 
 // build async function to post all data to server.js
-async function postData (temp, feeling) {
+async function postData (temp, feel) {
     await fetch ('/postData', {
       method: 'POST', 
       credentials: 'same-origin',
@@ -41,7 +45,7 @@ async function postData (temp, feeling) {
       body: JSON.stringify({
           date: newDate,
           temp: temp,
-          feeling: feeling,
+          feeling: feel,
       }),
 
     })
