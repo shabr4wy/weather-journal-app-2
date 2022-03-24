@@ -97,7 +97,7 @@ h3 {
 }
 
 .dataCollected__content p:not(.dataCollected__temp) {
-   min-width: 250px;
+   min-width: 300px;
 }
 
 .dataCollected__value:not(.dataCollected__temp > .dataCollected__value) {

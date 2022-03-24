@@ -15,8 +15,8 @@ btn.addEventListener('click', async () => {
 
     await getTemp(cityName)
 
-    .then ((temp) => {
-        postData (temp);
+    .then (( weatherData) => {
+        postData ( weatherData);
     })
     
     .then(()=> {
@@ -31,16 +31,23 @@ btn.addEventListener('click', async () => {
 // building async function to fetch temperature data via api.
 async function getTemp(cityName) {
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-    const weatherData = await fetch (url);
-    console.log(weatherData)
+    let weatherData = await fetch (url);
     const res = await weatherData.json();
+    const icon = await res.weather[0].icon;
     console.log(res)
-    const temp = res.main.temp
-    return temp;
+     weatherData = {
+        temp: res.main.temp.toFixed(0),
+        icon: icon,
+        date: newDate,
+        description: res.weather[0].description,
+        feelsLike: res.main.feels_like.toFixed(0),
+        humidity: res.main.humidity,
+    }
+    return  weatherData;
 }
 
 // build async function to post all data to server.js
-async function postData (temp) {
+async function postData (weatherData) {
     await fetch ('/postData', {
       method: 'POST', 
       credentials: 'same-origin',
@@ -48,8 +55,7 @@ async function postData (temp) {
           'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-          date: newDate,
-          temp: temp,
+         ...weatherData
       }),
 
     })
@@ -60,13 +66,25 @@ async function postData (temp) {
 // build async function to display data to user
 async function updateUI (){
     const req = await fetch('/getData');
-    const data = await req.json();
+    const weatherData = await req.json();
 
     document.querySelector('.dataCollected__temp').innerHTML =
-    `<span class="dataCollected__value">${data.temp}°C</span> 
-    <img src="cloudy-day-1.svg" height="100px" width="100px">`
+    `<span class="dataCollected__value">${weatherData.temp}°C</span> 
+     <img src="icons/${weatherData.icon}.svg" height="100px" width="100px">`
 
     document.querySelector('.dataCollected__date').innerHTML =
      `<span class="dataCollected_type">Date</span> 
-      <span class="dataCollected__value"> ${data.date} </span>`;
+      <span class="dataCollected__value"> ${weatherData.date} </span>`;
+
+    document.querySelector('.dataCollected__description').innerHTML =
+     `<span class="dataCollected_type">description</span> 
+      <span class="dataCollected__value"> ${weatherData.description} </span>`;
+
+      document.querySelector('.dataCollected__feelsLike').innerHTML =
+     `<span class="dataCollected_type">feels like</span> 
+      <span class="dataCollected__value"> ${weatherData.feelsLike}°C </span>`;
+
+    document.querySelector('.dataCollected__humidity').innerHTML =
+     `<span class="dataCollected_type">humidity</span> 
+      <span class="dataCollected__value"> ${weatherData.humidity}% </span>`;
 }
