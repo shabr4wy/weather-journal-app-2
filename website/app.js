@@ -15,12 +15,8 @@ btn.addEventListener('click', async () => {
 
     await getTemp(cityName)
 
-    .then (( weatherData) => {
-        postData ( weatherData);
-    })
-    
-    .then(()=> {
-    updateUI()
+    .then((weatherData)=> {
+    updateUI(weatherData)
     })
 
     .catch (error => {
@@ -46,45 +42,26 @@ async function getTemp(cityName) {
     return  weatherData;
 }
 
-// build async function to post all data to server.js
-async function postData (weatherData) {
-    await fetch ('/postData', {
-      method: 'POST', 
-      credentials: 'same-origin',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-         ...weatherData
-      }),
-
-    })
-}
-
-
-
 // build async function to display data to user
-async function updateUI (){
-    const req = await fetch('/getData');
-    const weatherData = await req.json();
+async function updateUI (weatherData){
 
     document.querySelector('.dataCollected__temp').innerHTML =
     `<span class="dataCollected__value">${weatherData.temp}°C</span> 
      <img src="icons/${weatherData.icon}.svg" height="100px" width="100px">`
 
     document.querySelector('.dataCollected__date').innerHTML =
-     `<span class="dataCollected_type">Date</span> 
+     `<span class="dataCollected__type">date</span> 
       <span class="dataCollected__value"> ${weatherData.date} </span>`;
 
     document.querySelector('.dataCollected__description').innerHTML =
-     `<span class="dataCollected_type">description</span> 
+     `<span class="dataCollected__type">description</span> 
       <span class="dataCollected__value"> ${weatherData.description} </span>`;
 
       document.querySelector('.dataCollected__feelsLike').innerHTML =
-     `<span class="dataCollected_type">feels like</span> 
+     `<span class="dataCollected__type">feels like</span> 
       <span class="dataCollected__value"> ${weatherData.feelsLike}°C </span>`;
 
     document.querySelector('.dataCollected__humidity').innerHTML =
-     `<span class="dataCollected_type">humidity</span> 
+     `<span class="dataCollected__type">humidity</span> 
       <span class="dataCollected__value"> ${weatherData.humidity}% </span>`;
 }
