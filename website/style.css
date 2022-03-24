@@ -1,111 +1,105 @@
-body{
-    background: #fffff8;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+/* fonts */
+*{
+    font-family:Arial, Helvetica, sans-serif
 }
 
-#app{
-    display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    height:100vh;
-    background: #f23557;
-    color: #f0d43a;
-    justify-content: center;
-    grid-gap: 1em;
+body {
     font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    line-height: 1.5;
 }
 
-.holder{
-
+.dataCollected {
+    line-height: 1;
 }
 
-.entry{
-    background: rgba(59, 74, 107, .4);
+/* style */
+
+.app {
+    background-color: #fff5e7;
+    border-color: transparent;
+    border-radius: 5px;
+    box-shadow:
+                6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+                22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+                100px 100px 80px rgba(0, 0, 0, 0.07)
+;
+   
 }
 
-#entryHolder{
-
+.cityName__label {
+    font-weight: bold;
 }
 
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
-
-.headline {
-
-}
-.title{
-
-}
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label{
-    display:block;
-    font-size: 27px;
-}
-
-input{
-    display:block;
-    height: 60px;
-    width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-}
-
-button{
-    width: 400px;
-    height: 100px;
-    background: #3b4a6b;
-    color: #f0d43a;
-    font-size: 26px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 5px #444;
-}
-h1{
-    font-size: 36px;
-}
-
-textarea{
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
-/* Reset style for HTML element on active to have no border*/
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
+.cityName__input {
+    display: block;
     outline: none;
+    font-size: 18px;
+    background-color: inherit;
+    border: lightgrey solid;
+    border-width: 0px 0px 3px 0px;
+    transition: border-color .3s;
 }
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
 
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
+.cityName__input:focus {
+    border: #ff8c00 solid;
+    border-width: 0px 0px 3px 0px;
+}
 
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
+.generate__btn {
+    font-size: inherit;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #ff8c00;
+    color: bisque;
+    border: #ee8c00 solid 2px;
+    outline: 2px solid transparent;
+    transition: outline .2s;
+}
 
-} 
+.generate__btn:hover {
+    background-color: #ef8c00;
+}
+
+.generate__btn:focus {
+    outline: 2px solid black;
+}
+
+
+/* layout */
+.app {
+    max-width: 500px;
+    margin: auto ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+}
+
+h3 {
+    margin-bottom: 60px;
+}
+
+.generate__btn {
+    margin: 20px;
+    margin-bottom: 10px;
+}
+
+.dataCollected__temp {
+    display: flex;
+    justify-content: center;
+}
+
+.dataCollected__temp .dataCollected__value {
+    position: relative;
+    top: 40px;
+    left: 10px;
+}
+
+.dataCollected__content p:not(.dataCollected__temp) {
+   min-width: 250px;
+}
+
+.dataCollected__value:not(.dataCollected__temp > .dataCollected__value) {
+    float: right;
+}
