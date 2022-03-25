@@ -45,23 +45,21 @@ async function getTemp(cityName) {
 // build async function to display data to user
 async function updateUI (weatherData){
 
-    document.querySelector('.dataCollected__temp').innerHTML =
-    `<span class="dataCollected__value">${weatherData.temp}°C</span> 
-     <img src="icons/${weatherData.icon}.svg" height="100px" width="100px">`
+    document.querySelector('.dataCollected__temp').querySelector('.dataCollected__value')
+     .innerHTML =`${weatherData.temp}°C`;
 
-    document.querySelector('.dataCollected__date').innerHTML =
-     `<span class="dataCollected__type">date</span> 
-      <span class="dataCollected__value"> ${weatherData.date} </span>`;
+    document.querySelector('.dataCollected__temp').querySelector('.dataCollected__icon')
+     .setAttribute('src',`icons/${weatherData.icon}.svg`);
 
-    document.querySelector('.dataCollected__description').innerHTML =
-     `<span class="dataCollected__type">description</span> 
-      <span class="dataCollected__value"> ${weatherData.description} </span>`;
+    document.querySelector('.dataCollected__date').querySelector('.dataCollected__value')
+     .innerHTML =`${weatherData.date}`;
 
-      document.querySelector('.dataCollected__feelsLike').innerHTML =
-     `<span class="dataCollected__type">feels like</span> 
-      <span class="dataCollected__value"> ${weatherData.feelsLike}°C </span>`;
+    document.querySelector('.dataCollected__description').querySelector('.dataCollected__value')
+     .innerHTML = `${weatherData.description}`;
 
-    document.querySelector('.dataCollected__humidity').innerHTML =
-     `<span class="dataCollected__type">humidity</span> 
-      <span class="dataCollected__value"> ${weatherData.humidity}% </span>`;
+    document.querySelector('.dataCollected__feelsLike').querySelector('.dataCollected__value')
+     .innerHTML = `${weatherData.feelsLike}°C`;
+
+    document.querySelector('.dataCollected__humidity').querySelector('.dataCollected__value')
+     .innerHTML = `${weatherData.humidity}%`;
 }

@@ -17,13 +17,7 @@ body {
 .app {
     background-color: #fff5e7;
     border-color: transparent;
-    border-radius: 5px;
-    box-shadow:
-                6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-                22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-                100px 100px 80px rgba(0, 0, 0, 0.07)
-;
-   
+    border-radius: 5px;   
 }
 
 .cityName__label {
@@ -61,8 +55,17 @@ body {
     background-color: #ef8c00;
 }
 
+/* for mobile to look as hover state */
+.generate__btn:active {
+    background-color: #ef8c00;
+}
+
 .generate__btn:focus {
     outline: 2px solid black;
+}
+
+.dataCollected__title {
+    font-weight: bold;
 }
 
 
@@ -88,12 +91,13 @@ h3 {
 .dataCollected__temp {
     display: flex;
     justify-content: center;
+    height: 100px;
 }
 
 .dataCollected__temp .dataCollected__value {
     position: relative;
     top: 40px;
-    left: 10px;
+    left: 5px;
 }
 
 .dataCollected__content p:not(.dataCollected__temp) {

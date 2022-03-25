@@ -7,8 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
-
+  
   <title>Weather Journal App</title>
 
 </head>
@@ -25,7 +24,7 @@
 
     <section class ="cityName">
       <label for="cityName__label" class="cityName__label">Your city: </label>
-      <input type="tel" id="cityName__label"  class="cityName__input" placeholder="enter city name">
+      <input type="text" id="cityName__label"  class="cityName__input" placeholder="enter city name">
     </section>
 
 
@@ -39,11 +38,31 @@
 
 
       <section class="dataCollected__content"> 
-        <p class = "dataCollected__temp"> </p>
-        <p class = "dataCollected__date"> </p>
-        <p class = "dataCollected__description"> </p>
-        <p class = "dataCollected__feelsLike"> </p>
-        <p class = "dataCollected__humidity"> </p>
+        <p class = "dataCollected__temp">
+          <span class="dataCollected__value"></span>
+          <img class="dataCollected__icon"> 
+        </p>
+
+        <p class = "dataCollected__date"> 
+          <span class="dataCollected__title">date</span>
+          <span class="dataCollected__value"> </span> 
+        </p>
+
+        <p class = "dataCollected__description"> 
+          <span class="dataCollected__title">description</span>
+          <span class="dataCollected__value"> </span> 
+        </p>
+
+        <p class = "dataCollected__feelsLike"> 
+          <span class="dataCollected__title">feels like</span>
+          <span class="dataCollected__value"> </span> 
+        </p>
+
+        <p class = "dataCollected__humidity">
+          <span class="dataCollected__title">humidity</span>
+          <span class="dataCollected__value"> </span> 
+        </p>
+
       </section>
 
     </section>
@@ -54,9 +73,3 @@
 
 </body>
 </html>
-
-
-
-<!-- <span class="dataCollected_type">Date:</span>10.2.2022
-<span class="dataCollected_type"> temperature:</span> 10.6
-<span class="dataCollected_type">your feeling:</span> cold -->
