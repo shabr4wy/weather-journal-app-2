@@ -7,6 +7,8 @@ let d = new Date();
 let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 btn.addEventListener('click', async () => {
+
+
     const cityName = document.querySelector('.cityName__input').value;
 
     if (!cityName){
@@ -45,21 +47,18 @@ async function getTemp(cityName) {
 // build async function to display data to user
 async function updateUI (weatherData){
 
-    document.querySelector('.dataCollected__temp').querySelector('.dataCollected__value')
-     .innerHTML =`${weatherData.temp}°C`;
+    document.querySelector('.dataCollected__tempValue').innerHTML =`${weatherData.temp}°C`;
 
-    document.querySelector('.dataCollected__temp').querySelector('.dataCollected__icon')
-     .setAttribute('src',`icons/${weatherData.icon}.svg`);
+    document.querySelector('.dataCollected__weatherIcon').setAttribute('src',`icons/${weatherData.icon}.svg`);
 
-    document.querySelector('.dataCollected__date').querySelector('.dataCollected__value')
-     .innerHTML =`${weatherData.date}`;
+    document.querySelector('.dataCollected__dateValue').innerHTML =`${weatherData.date}`;
 
-    document.querySelector('.dataCollected__description').querySelector('.dataCollected__value')
-     .innerHTML = `${weatherData.description}`;
+    document.querySelector('.dataCollected__descriptionValue').innerHTML = `${weatherData.description}`;
 
-    document.querySelector('.dataCollected__feelsLike').querySelector('.dataCollected__value')
-     .innerHTML = `${weatherData.feelsLike}°C`;
+    document.querySelector('.dataCollected__feelsLikeValue').innerHTML = `${weatherData.feelsLike}°C`;
 
-    document.querySelector('.dataCollected__humidity').querySelector('.dataCollected__value')
-     .innerHTML = `${weatherData.humidity}%`;
+    document.querySelector('.dataCollected__humidityValue').innerHTML = `${weatherData.humidity}%`;
+
+    // to animate data when it shows up
+     document.querySelector('.dataCollected').classList.remove ('dataCollected--animate2')
 }

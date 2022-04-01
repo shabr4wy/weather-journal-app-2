@@ -1,20 +1,18 @@
 /* fonts */
-*{
-    font-family:Arial, Helvetica, sans-serif
-}
-
-body {
+*:not(h3){
+    font-family:Arial, Helvetica, sans-serif;
     font-size: 20px;
     line-height: 1.5;
+    margin-inline-start: 0;
 }
 
-.dataCollected {
-    line-height: 1;
+dd,
+dt{
+    line-height: 2;
 }
-
 /* style */
 
-.app {
+.weatherJournalCard {
     background-color: #fff5e7;
     border-color: transparent;
     border-radius: 5px;   
@@ -64,13 +62,29 @@ body {
     outline: 2px solid black;
 }
 
-.dataCollected__title {
+dt {
     font-weight: bold;
 }
 
+.dataCollected--animate1 {
+    opacity: 1;
+    transition: all .4s;
+}
+
+.dataCollected--animate2 {
+    opacity: 0;
+}
+
+.dataCollected__iconsAttribute {
+    color: rgb(77, 76, 76);
+}
+
+a {
+    font-size: inherit;
+}
 
 /* layout */
-.app {
+.weatherJournalCard {
     max-width: 500px;
     margin: auto ;
     display: flex;
@@ -79,7 +93,7 @@ body {
     margin-top: 20vh;
 }
 
-h3 {
+.header__hero {
     margin-bottom: 60px;
 }
 
@@ -88,22 +102,29 @@ h3 {
     margin-bottom: 10px;
 }
 
-.dataCollected__temp {
-    display: flex;
-    justify-content: center;
-    height: 100px;
+.dataCollected {
+    min-width: 300px;
 }
 
-.dataCollected__temp .dataCollected__value {
-    position: relative;
-    top: 40px;
-    left: 5px;
+dd img {
+    margin: 0px 100px;
 }
 
-.dataCollected__content p:not(.dataCollected__temp) {
-   min-width: 300px;
-}
-
-.dataCollected__value:not(.dataCollected__temp > .dataCollected__value) {
+dd[class *= Value] {
     float: right;
+    /* 30 is related to line height */
+    margin-top: -40px;
+}
+
+dd.dataCollected__tempValue {
+    float: left;
+    margin-left: 70px;
+    position: relative;
+    top: 60px;
+}
+
+.dataCollected__iconsAttribute {
+    position: absolute;
+    bottom: 10px;
+    margin-left: 64px;
 }
