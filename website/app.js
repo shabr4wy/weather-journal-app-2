@@ -8,6 +8,8 @@ let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 btn.addEventListener('click', async () => {
 
+    // to be abel to animate again if user enters another city
+    document.querySelector('.dataCollected').classList.add('dataCollected--animate2');
 
     const cityName = document.querySelector('.cityName__input').value;
 
@@ -61,5 +63,7 @@ async function updateUI (weatherData){
     document.querySelector('.dataCollected__humidityValue').innerHTML = `${weatherData.humidity}%`;
 
     // to animate data when it shows up
-     document.querySelector('.dataCollected').classList.remove ('dataCollected--animate2')
+    document.querySelector('.dataCollected').classList.remove ('dataCollected--animate2');
 }
+
+
