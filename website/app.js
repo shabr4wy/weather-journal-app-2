@@ -25,6 +25,7 @@ btn.addEventListener('click', async () => {
 
     .catch (error => {
         console.log(error)
+        alert('Your city name is not correct.');
     })
 });
 
@@ -65,5 +66,3 @@ async function updateUI (weatherData){
     // to animate data when it shows up
     document.querySelector('.dataCollected').classList.remove ('dataCollected--animate2');
 }
-
-

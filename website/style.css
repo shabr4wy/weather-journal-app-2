@@ -68,7 +68,7 @@ dt {
 
 .dataCollected--animate1 {
     opacity: 1;
-    transition: all .4s;
+    transition: all .2s;
 }
 
 .dataCollected--animate2 {
