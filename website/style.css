@@ -118,9 +118,9 @@ dd[class *= Value] {
 
 dd.dataCollected__tempValue {
     float: left;
-    margin-left: 70px;
     position: relative;
-    top: 60px;
+    top: 70px;
+    left: 70px;
 }
 
 .dataCollected__iconsAttribute {
