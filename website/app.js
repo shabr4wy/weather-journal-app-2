@@ -50,6 +50,7 @@ async function updateUI (weatherData){
     document.querySelector('.dataCollected__tempValue').innerHTML =`${weatherData.temp}°C`;
 
     document.querySelector('.dataCollected__weatherIcon').setAttribute('src',`icons/${weatherData.icon}.svg`);
+    document.querySelector('.dataCollected__weatherIcon').setAttribute('alt',`${weatherData.description}`);
 
     document.querySelector('.dataCollected__dateValue').innerHTML =`${weatherData.date}`;
 
