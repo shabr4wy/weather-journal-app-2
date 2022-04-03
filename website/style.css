@@ -151,6 +151,10 @@ footer {
     .iconsAttribute {
         position: static;
     }
+
+    .weatherJournalCard {
+        margin-top: 0px;
+    }
 }
 
 /* for galaxy fold  */
