@@ -31,7 +31,7 @@ btn.addEventListener('click', async () => {
 
 // building async function to fetch temperature data via api.
 async function getTemp(cityName) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
     let weatherData = await fetch (url);
     const res = await weatherData.json();
     const icon = await res.weather[0].icon;
