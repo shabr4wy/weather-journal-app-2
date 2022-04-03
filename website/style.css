@@ -135,7 +135,7 @@ footer {
 }
 
 /* for tablets and bigger
-   min height is defined for the nest hub     
+   min height is defined for Nest Hub responsivity     
 */
 @media only screen and (min-width: 600px) and (min-height: 601px) {
     body {
@@ -148,8 +148,8 @@ footer {
     }
 }
 
-/* galaxy fold */
-@media only screen and (max-height:520px) {
+/* for landscape view */
+@media only screen and (orientation: landscape) {
     .iconsAttribute {
         position: static;
     }
