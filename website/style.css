@@ -154,3 +154,14 @@ footer {
         position: static;
     }
 }
+
+/* for galaxy fold  */
+@media only screen and (max-width:300px) {
+    dd img {
+        margin: 0 85px
+    }
+
+    .dataCollected {
+        min-width: 270px;
+    }
+}
