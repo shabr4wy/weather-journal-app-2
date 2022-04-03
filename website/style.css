@@ -133,3 +133,24 @@ footer {
     position: absolute;
     bottom: 10px;
 }
+
+/* for tablets and bigger
+   min height is defined for the nest hub     
+*/
+@media only screen and (min-width: 600px) and (min-height: 601px) {
+    body {
+        background-color: white;
+    }
+
+    .weatherJournalCard {
+        background-color: #fff5e7;
+        margin-top: 20vh;
+    }
+}
+
+/* galaxy fold */
+@media only screen and (max-height:520px) {
+    .iconsAttribute {
+        position: static;
+    }
+}
