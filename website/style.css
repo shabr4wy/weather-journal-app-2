@@ -123,6 +123,11 @@ dd.dataCollected__tempValue {
     left: 60px;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+}
+
 .iconsAttribute {
     position: absolute;
     bottom: 10px;
