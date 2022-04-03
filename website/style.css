@@ -134,10 +134,8 @@ footer {
     bottom: 10px;
 }
 
-/* for tablets and bigger
-   min height is defined for Nest Hub responsivity     
-*/
-@media only screen and (min-width: 600px) and (min-height: 601px) {
+/* for tablets and bigger*/
+@media only screen and (min-width: 600px){
     body {
         background-color: white;
     }
@@ -149,7 +147,7 @@ footer {
 }
 
 /* for landscape view */
-@media only screen and (orientation: landscape) {
+@media only screen and (orientation: landscape) and (max-width: 1024px) {
     .iconsAttribute {
         position: static;
     }
