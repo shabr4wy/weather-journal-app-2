@@ -11,9 +11,11 @@ dt{
     line-height: 2;
 }
 /* style */
+body {
+    background-color: #fff5e7;
+}
 
 .weatherJournalCard {
-    background-color: #fff5e7;
     border-color: transparent;
     border-radius: 5px;   
 }
@@ -90,7 +92,6 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20vh;
 }
 
 .header__hero {
