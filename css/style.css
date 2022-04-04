@@ -148,6 +148,10 @@ footer {
 
 /* for landscape view */
 @media only screen and (orientation: landscape) and (max-width: 1024px) {
+     body {
+        background-color: #fff5e7;
+    }
+
     .iconsAttribute {
         position: static;
     }
