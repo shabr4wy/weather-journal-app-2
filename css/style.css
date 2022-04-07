@@ -48,19 +48,20 @@ body {
     color: black;
     border: #ee8c00 solid 2px;
     outline: none;
+    cursor: pointer;
+    transition: box-shadow .2s;
 }
 
-.generate__btn:hover {
-    background-color: #ef8c00;
+@media (hover:hover){
+    .generate__btn:hover {
+        background-color: #ef8c00;
+    }    
 }
 
-/* for mobile to look as hover state */
-.generate__btn:active {
-    background-color: #ef8c00;
-}
-
+.generate__btn:active,
 .generate__btn:focus {
-    border: 2px solid black;
+    box-shadow: 0 0 2px;
+    background-color: #ef8c00;
 }
 
 dt {
