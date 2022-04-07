@@ -47,8 +47,7 @@ body {
     background-color: #ff8c00;
     color: black;
     border: #ee8c00 solid 2px;
-    outline: 2px solid transparent;
-    transition: outline .2s;
+    outline: none;
 }
 
 .generate__btn:hover {
@@ -61,7 +60,7 @@ body {
 }
 
 .generate__btn:focus {
-    outline: 2px solid black;
+    border: 2px solid black;
 }
 
 dt {
