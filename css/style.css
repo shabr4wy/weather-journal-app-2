@@ -20,23 +20,21 @@ body {
     border-radius: 5px;   
 }
 
-.cityName__label {
-    font-weight: bold;
-}
-
 .cityName__input {
     display: block;
+    background-color: white;
+    height: 30px;
+    width: 230px;
+    font-size: 16px;
+    padding-left: 5px;
     outline: none;
-    font-size: 18px;
-    background-color: inherit;
-    border: lightgrey solid;
-    border-width: 0px 0px 3px 0px;
-    transition: border-color .3s;
+    border:lightgrey solid;
+    border-radius: 5px;
+    transition: border .3s;
 }
 
 .cityName__input:focus {
-    border: #ff8c00 solid;
-    border-width: 0px 0px 3px 0px;
+    border: solid;
 }
 
 .generate__btn {
