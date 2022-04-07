@@ -3,11 +3,11 @@
     font-family:Arial, Helvetica, sans-serif;
     font-size: 20px;
     line-height: 1.5;
-    margin-inline-start: 0;
 }
 
 dd,
 dt{
+    margin-inline-start: 0;
     line-height: 2;
 }
 /* style */
@@ -127,11 +127,11 @@ dd.dataCollected__tempValue {
 footer {
     display: flex;
     justify-content: center;
-}
-
-.iconsAttribute {
+    width: 100vw;
     position: absolute;
     bottom: 10px;
+    left: 0;
+    right: 0;
 }
 
 /* for tablets and bigger*/
@@ -152,7 +152,7 @@ footer {
         background-color: #fff5e7;
     }
 
-    .iconsAttribute {
+    footer { 
         position: static;
     }
 
