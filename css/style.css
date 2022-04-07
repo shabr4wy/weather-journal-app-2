@@ -114,7 +114,7 @@ dd img {
 dd[class *= Value] {
     float: right;
     /* 30 is related to line height */
-    margin-top: -40px;
+    margin-top: -36px;
 }
 
 dd.dataCollected__tempValue {
