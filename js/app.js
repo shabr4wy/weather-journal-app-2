@@ -14,7 +14,7 @@ btn.addEventListener('click', async () => {
     const cityName = document.querySelector('.cityName__input').value;
 
     if (!cityName){
-        alert('please, Enter city name')
+        alert('please, Enter any city name')
     }
 
     await getTemp(cityName)
@@ -25,7 +25,7 @@ btn.addEventListener('click', async () => {
 
     .catch (error => {
         console.log(error)
-        alert('Your city name is not correct.');
+        alertError(cityName);
     })
 });
 
@@ -65,4 +65,11 @@ async function updateUI (weatherData){
 
     // to animate data when it shows up
     document.querySelector('.dataCollected').classList.remove ('dataCollected--animate2');
+}
+
+
+function alertError (cityName) {
+    if (cityName !== '') {
+        alert('please, Enter a correct city name.');
+    }
 }
