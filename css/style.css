@@ -117,10 +117,7 @@ footer {
     display: flex;
     justify-content: center;
     width: 100vw;
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
+    margin-top: 10px;
 }
 
 /* for tablets and bigger*/
@@ -139,10 +136,6 @@ footer {
 @media only screen and (orientation: landscape) and (max-height: 450px) {
      body {
         background-color: #fff5e7;
-    }
-
-    footer { 
-        position: static;
     }
 
     .weatherJournalCard {
