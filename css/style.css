@@ -27,38 +27,29 @@ body {
     width: 230px;
     font-size: 16px;
     padding-left: 5px;
-    outline: none;
     border:lightgrey solid;
     border-radius: 5px;
-    transition: border .3s;
-}
-
-.cityName__input:focus {
-    border: solid;
 }
 
 .generate__btn {
     font-size: inherit;
     margin-top: 10px;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 5px;
     background-color: #ff8c00;
     color: black;
-    border: #ee8c00 solid 2px;
-    outline: none;
+    border: #ee8c00 solid;
     cursor: pointer;
-    transition: box-shadow .2s;
+    transition: border .2s;
 }
 
 @media (hover:hover){
     .generate__btn:hover {
         background-color: #ef8c00;
-    }    
+    }
 }
 
-.generate__btn:active,
-.generate__btn:focus {
-    box-shadow: 0 0 2px;
+.generate__btn:active {
     background-color: #ef8c00;
 }
 
