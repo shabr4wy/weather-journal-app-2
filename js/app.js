@@ -1,9 +1,6 @@
 /* Global Variables */
 const apiKey = '5fce3a19bfe15beed4fcc55b9d25f811';
 const btn = document.querySelector('.generate__btn');
-
-
-// Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
@@ -30,9 +27,10 @@ function hideWeatherData () {
 
 
 async function getAndShowWeatherData (cityName) {
+    // to show that the app is fetching data in the background
     showLoadingParagrapgh();
     
-    await getTemp(cityName)
+    await getWeatherData(cityName)
     
     .then((WeatherDataForUi)=> {
         updateUI(WeatherDataForUi)
@@ -47,6 +45,7 @@ async function getAndShowWeatherData (cityName) {
 }
 
 
+// to show that the app is fetching data in the background
 function showLoadingParagrapgh () {
     const loadingParagrapgh = document.querySelector('.generate__loading--opacity0');
     loadingParagrapgh.classList.add ('generate__loading--opacity1')
@@ -54,7 +53,7 @@ function showLoadingParagrapgh () {
 
 
 // building async function to fetch temperature data via api.
-async function getTemp(cityName) {
+async function getWeatherData(cityName) {
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
     let weatherDataFromServer = await fetch (url);
@@ -71,6 +70,7 @@ async function getTemp(cityName) {
 
     return  WeatherDataForUi;
 }
+
 
 // build async function to display data to user
 async function updateUI (WeatherDataForUi){
