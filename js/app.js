@@ -2,35 +2,56 @@
 const apiKey = '5fce3a19bfe15beed4fcc55b9d25f811';
 const btn = document.querySelector('.generate__btn');
 
+
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
+
 btn.addEventListener('click', async () => {
-
-    showLoadingParagrapgh()
-    // to be abel to animate again if user enters another city
-    document.querySelector('.dataCollected').classList.add('dataCollected--animate2');
-
     const cityName = document.querySelector('.cityName__input').value;
+
+    // to be abel to animate again if user enters another city
+    hideWeatherData();
 
     if (!cityName){
         alert('please, Enter any city name')
     }
 
+    getAndShowWeatherData(cityName);
+});
+
+
+// to be abel to animate again if user enters another city
+function hideWeatherData () {
+    const dataCollected = document.querySelector('.dataCollected');
+    dataCollected.classList.add('dataCollected--animate2');
+}
+
+
+async function getAndShowWeatherData (cityName) {
+    showLoadingParagrapgh();
+    
     await getTemp(cityName)
-
+    
     .then((WeatherDataForUi)=> {
-    updateUI(WeatherDataForUi)
+        updateUI(WeatherDataForUi)
     })
-
+    
     .catch (error => {
         console.log(error)
         alertError(cityName);
     })
-
+    
     hideLoadingParagraph();
-});
+}
+
+
+function showLoadingParagrapgh () {
+    const loadingParagrapgh = document.querySelector('.generate__loading--opacity0');
+    loadingParagrapgh.classList.add ('generate__loading--opacity1')
+}
+
 
 // building async function to fetch temperature data via api.
 async function getTemp(cityName) {
@@ -66,9 +87,15 @@ async function updateUI (WeatherDataForUi){
     document.querySelector('.dataCollected__feelsLikeValue').innerHTML = `${WeatherDataForUi.feelsLike}°C`;
 
     document.querySelector('.dataCollected__humidityValue').innerHTML = `${WeatherDataForUi.humidity}%`;
+    
+    showWeatherData();
+}
 
-    // to animate data when it shows up
-    document.querySelector('.dataCollected').classList.remove ('dataCollected--animate2');
+
+
+function showWeatherData () {
+    const dataCollected = document.querySelector('.dataCollected');
+    dataCollected.classList.remove ('dataCollected--animate2');
 }
 
 
@@ -78,10 +105,6 @@ function alertError (cityName) {
     }
 }
 
-function showLoadingParagrapgh () {
-    const loadingParagrapgh = document.querySelector('.generate__loading--opacity0');
-    loadingParagrapgh.classList.add ('generate__loading--opacity1')
-}
 
 function hideLoadingParagraph () {
     const loadingParagrapgh = document.querySelector('.generate__loading--opacity0');
