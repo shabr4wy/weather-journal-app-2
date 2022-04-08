@@ -25,6 +25,8 @@ Asynchronous app that uses API to get weather data for more than 200,000 cities.
 * openweathermap API
 
 
+
+
 ### Javasript functionalities
 the main 2 functionalities are
 
