@@ -6,6 +6,7 @@
 * [Description](#Description)
 * [Technologies](#Technologies)
 * [Javasript functionalities](#Javasript-functionalities)
+* [Website Link](#Website-Link)
 
 
 ## Description
@@ -33,3 +34,7 @@ using the api key and user input the app asynchronously parses the server data. 
 
 ### UpdateUi
 in this function, the app uses the "WeatherDataForUi" object to update every element with its new content.
+
+
+## Website link
+https://shabr4wy.github.io/weather-journal-app-2/
