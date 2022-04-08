@@ -1,10 +1,35 @@
 # Weather-Journal App Project
 
-## Overview
-This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
 
-## Instructions
-This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
+## Table of Contents
 
-## Extras
-If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
+* [Description](#Description)
+* [Technologies](#Technologies)
+* [Javasript functionalities](#Javasript-functionalities)
+
+
+### Description
+Asynchronous app that uses API to get weather data for more than 200,000 cities. the user needs only to enter any city name and hit generate button.
+
+
+### Technologies
+#### langugae
+* HTML
+* CSS
+* Javascript
+
+#### version control
+* git
+
+#### API
+* openweathermap API
+
+
+### Javasript functionalities
+the main 2 functionalities are
+
+#### getWeatherData
+using the api key and user input the app asynchronously parses the server data. this data is stored in "WeatherDataForUi" object.
+
+#### UpdateUi
+in this function, the app uses the "WeatherDataForUi" object to update every element with its new content.
