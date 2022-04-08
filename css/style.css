@@ -88,9 +88,29 @@ a {
     margin-bottom: 60px;
 }
 
+.generate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .generate__btn {
     margin: 20px;
     margin-bottom: 10px;
+}
+
+.generate__loading--opacity0 {
+    opacity: 0;
+    margin: 0;
+    line-height: 0;
+    color: rgb(87, 87, 87);
+    transition: opacity .2s;
+}
+
+.generate__loading--opacity1 {
+    opacity: 1;
+    margin: 0;
+    line-height: 0;
 }
 
 .dataCollected {
