@@ -19,8 +19,8 @@ btn.addEventListener('click', async () => {
 
     await getTemp(cityName)
 
-    .then((weatherData)=> {
-    updateUI(weatherData)
+    .then((WeatherDataForUi)=> {
+    updateUI(WeatherDataForUi)
     })
 
     .catch (error => {
@@ -31,37 +31,38 @@ btn.addEventListener('click', async () => {
 
 // building async function to fetch temperature data via api.
 async function getTemp(cityName) {
+
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-    let weatherData = await fetch (url);
-    const res = await weatherData.json();
-    const icon = await res.weather[0].icon;
-    console.log(res)
-     weatherData = {
+    let weatherDataFromServer = await fetch (url);
+    const res = await weatherDataFromServer.json();
+
+    WeatherDataForUi = {
         temp: res.main.temp.toFixed(0),
-        icon: icon,
+        icon: res.weather[0].icon,
         date: newDate,
         description: res.weather[0].description,
         feelsLike: res.main.feels_like.toFixed(0),
         humidity: res.main.humidity,
     }
-    return  weatherData;
+
+    return  WeatherDataForUi;
 }
 
 // build async function to display data to user
-async function updateUI (weatherData){
+async function updateUI (WeatherDataForUi){
 
-    document.querySelector('.dataCollected__tempValue').innerHTML =`${weatherData.temp}°C`;
+    document.querySelector('.dataCollected__tempValue').innerHTML =`${WeatherDataForUi.temp}°C`;
 
-    document.querySelector('.dataCollected__weatherIcon').setAttribute('src',`icons/${weatherData.icon}.svg`);
-    document.querySelector('.dataCollected__weatherIcon').setAttribute('alt',`weather icon that shows ${weatherData.description}`);
+    document.querySelector('.dataCollected__weatherIcon').setAttribute('src',`icons/${WeatherDataForUi.icon}.svg`);
+    document.querySelector('.dataCollected__weatherIcon').setAttribute('alt',`weather icon that shows ${WeatherDataForUi.description}`);
 
-    document.querySelector('.dataCollected__dateValue').innerHTML =`${weatherData.date}`;
+    document.querySelector('.dataCollected__dateValue').innerHTML =`${WeatherDataForUi.date}`;
 
-    document.querySelector('.dataCollected__descriptionValue').innerHTML = `${weatherData.description}`;
+    document.querySelector('.dataCollected__descriptionValue').innerHTML = `${WeatherDataForUi.description}`;
 
-    document.querySelector('.dataCollected__feelsLikeValue').innerHTML = `${weatherData.feelsLike}°C`;
+    document.querySelector('.dataCollected__feelsLikeValue').innerHTML = `${WeatherDataForUi.feelsLike}°C`;
 
-    document.querySelector('.dataCollected__humidityValue').innerHTML = `${weatherData.humidity}%`;
+    document.querySelector('.dataCollected__humidityValue').innerHTML = `${WeatherDataForUi.humidity}%`;
 
     // to animate data when it shows up
     document.querySelector('.dataCollected').classList.remove ('dataCollected--animate2');
