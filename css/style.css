@@ -78,6 +78,7 @@ a {
 .weatherJournalCard {
     max-width: 500px;
     margin: auto ;
+    margin-top: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
