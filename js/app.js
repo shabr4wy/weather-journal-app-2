@@ -8,6 +8,7 @@ let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 btn.addEventListener('click', async () => {
 
+    showLoadingParagrapgh()
     // to be abel to animate again if user enters another city
     document.querySelector('.dataCollected').classList.add('dataCollected--animate2');
 
@@ -27,6 +28,8 @@ btn.addEventListener('click', async () => {
         console.log(error)
         alertError(cityName);
     })
+
+    hideLoadingParagraph();
 });
 
 // building async function to fetch temperature data via api.
@@ -73,4 +76,14 @@ function alertError (cityName) {
     if (cityName !== '') {
         alert('please, Enter a correct city name.');
     }
+}
+
+function showLoadingParagrapgh () {
+    const loadingParagrapgh = document.querySelector('.generate__loading--opacity0');
+    loadingParagrapgh.classList.add ('generate__loading--opacity1')
+}
+
+function hideLoadingParagraph () {
+    const loadingParagrapgh = document.querySelector('.generate__loading--opacity0');
+    loadingParagrapgh.classList.remove ('generate__loading--opacity1');
 }
