@@ -78,7 +78,6 @@ async function updateUI (WeatherDataForUi){
     document.querySelector('.dataCollected__tempValue').innerHTML =`${WeatherDataForUi.temp}°C`;
 
     document.querySelector('.dataCollected__weatherIcon').setAttribute('src',`icons/${WeatherDataForUi.icon}.svg`);
-    document.querySelector('.dataCollected__weatherIcon').setAttribute('alt',`weather icon that shows ${WeatherDataForUi.description}`);
 
     document.querySelector('.dataCollected__dateValue').innerHTML =`${WeatherDataForUi.date}`;
 
