@@ -28,7 +28,9 @@ function hideWeatherData () {
 
 async function getAndShowWeatherData (cityName) {
     // to show that the app is fetching data in the background
-    showLoadingParagrapgh();
+    if(cityName){
+        showLoadingParagrapgh();
+    }
     
     await getWeatherData(cityName)
     
