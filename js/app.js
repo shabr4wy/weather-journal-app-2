@@ -12,8 +12,12 @@ btn.addEventListener('click', () => {
         alert('please, Enter any city name')
     }
     // fix mansourah spelling
-    else if (cityName === 'mansura' || cityName === 'mansora' || cityName === 'mansoura'){
-        cityName = 'mansourah'
+    // toLowerCase() is used to avoid the difference in the case sensitivity entered by user
+    else if (  cityName.toLowerCase() === 'mansura'
+             ||cityName.toLowerCase() === 'mansora'
+             ||cityName.toLowerCase() === 'mansoura'){
+                 
+                cityName = 'mansourah'
     }    
 
     // to be abel to animate again if user enters another city
