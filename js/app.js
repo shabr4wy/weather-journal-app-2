@@ -5,8 +5,12 @@ let d = new Date();
 let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 
-btn.addEventListener('click', async () => {
-    const cityName = document.querySelector('.cityName__input').value;
+btn.addEventListener('click', () => {
+    let cityName = document.querySelector('.cityName__input').value;
+    
+    if (cityName === 'mansura' || cityName === 'mansora' || cityName === 'mansoura'){
+        cityName = 'mansourah'
+    }
 
     // to be abel to animate again if user enters another city
     hideWeatherData();
@@ -15,7 +19,7 @@ btn.addEventListener('click', async () => {
         alert('please, Enter any city name')
     }
 
-    getAndShowWeatherData(cityName);
+    getAndShowWeatherDataInUI(cityName);
 });
 
 
@@ -26,7 +30,7 @@ function hideWeatherData () {
 }
 
 
-async function getAndShowWeatherData (cityName) {
+async function getAndShowWeatherDataInUI (cityName) {
     // to show that the app is fetching data in the background
     if(cityName){
         showLoadingParagrapgh();
@@ -40,7 +44,7 @@ async function getAndShowWeatherData (cityName) {
     
     .catch (error => {
         console.log(error)
-        alertError(cityName);
+        alertNotCorrect(cityName);
     })
     
     hideLoadingParagraph();
@@ -89,18 +93,18 @@ async function updateUI (WeatherDataForUi){
 
     document.querySelector('.dataCollected__humidityValue').innerHTML = `${WeatherDataForUi.humidity}%`;
     
-    showWeatherData();
+    showWeatherDataInUI();
 }
 
 
 
-function showWeatherData () {
+function showWeatherDataInUI () {
     const dataCollected = document.querySelector('.dataCollected');
     dataCollected.classList.remove ('dataCollected--animate2');
 }
 
 
-function alertError (cityName) {
+function alertNotCorrect (cityName) {
     if (cityName !== '') {
         alert('please, Enter a correct city name.');
     }
