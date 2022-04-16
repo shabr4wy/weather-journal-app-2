@@ -8,16 +8,16 @@ let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 btn.addEventListener('click', () => {
     let cityName = document.querySelector('.cityName__input').value;
     
-    if (cityName === 'mansura' || cityName === 'mansora' || cityName === 'mansoura'){
-        cityName = 'mansourah'
-    }
-
-    // to be abel to animate again if user enters another city
-    hideWeatherData();
-
     if (!cityName){
         alert('please, Enter any city name')
     }
+    // fix mansourah spelling
+    else if (cityName === 'mansura' || cityName === 'mansora' || cityName === 'mansoura'){
+        cityName = 'mansourah'
+    }    
+
+    // to be abel to animate again if user enters another city
+    hideWeatherData();
 
     getAndShowWeatherDataInUI(cityName);
 });
